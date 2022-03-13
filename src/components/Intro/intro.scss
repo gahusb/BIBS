@@ -1,0 +1,82 @@
+@import 'utils';
+
+.page-template {
+  main {
+      background: $oc-gray-1;
+      // min-height: calc(100vh - 15rem);
+  }
+  .background {
+    background: url("/background.png") no-repeat center fixed; 
+    background-size: cover;
+    min-height: calc(100vh - 2rem);
+    .button {
+      position:absolute;
+      background: transparent;
+      float: left;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      height: 144px;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 60px;
+      box-sizing: border-box;
+      border: 3px solid rgba(245, 245, 241, 0.2);
+      border-radius: 44px;
+      font-size: 80px;
+      font-weight: 700;
+      -webkit-transition: border .125s ease, background .125s ease;
+      transition: border .125s ease, background .125s ease;
+      // gray: 회색 버튼
+      &.gray {
+          background: $oc-gray-7;
+          &.hover {
+              background: $oc-gray-6;
+          }
+          &.active {
+              background: $oc-gray-7;
+          }
+      }
+  
+      &:hover {
+          @include material-shadow(2, 0.5); // 마우스 커서가 위에 있으면 그림자 생성
+      }
+  
+      // 비활성화된 버튼
+      &.disabled {
+          background: $oc-gray-4;
+          color: $oc-gray-6;
+          cursor: default;
+          &:hover, &:active {
+              box-shadow: none;
+              background: $oc-gray-4;
+          }
+      }
+  
+      // 버튼 두 개 이상이 함께 있다면 중간 여백
+      & + & {
+          margin-left: 0.5rem;
+      }
+    }
+    .button:hover {
+      border: 2px solid #f5f5f1;
+    }
+    .button[data-primary='true'] {
+      border: 2px solid #e50914;
+    }
+    .button[data-primary='true']:hover {
+      background: #e50914;
+    }
+    .hc { width:150px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
+    .vc { height:40px; top: 0; bottom:0; margin-top:auto; margin-bottom:auto; } /* 세로 중앙 정렬 */
+  }
+}

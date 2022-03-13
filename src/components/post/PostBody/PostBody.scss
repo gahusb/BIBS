@@ -1,0 +1,99 @@
+@import 'utils';
+@import "~video-react/styles/scss/video-react";
+
+.post-body {
+    .paper {
+        padding: 2rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        background: white;
+        @include material-shadow(4, 0.5);
+        // 위로 3rem 이동시켜 주어 파란색 배경을 침범하게
+        transform: translateY(-3rem);
+        margin: 0 auto;
+        min-height: 20rem;
+
+        // 해상도에 따라 다른 width를 설정합니다.
+        width: 1024px;
+        @include media("<large") { width: 768px; }
+        @include media("<medium") { width: calc(100% - 2rem); }
+        .video {
+            margin: 0 auto;
+            // @include media("<large") { 
+            //     width: 640px;
+            //     height: 360px;
+            // }
+            // @include media("<medium") {
+            //     width: 200px;
+            //     height: 100px;
+            // }
+            
+            // 4:3 = 400x300 , 640x480, 800x600, 1024x768, 1152x864, 1280x960
+            // Extra small devices (portrait phones, 576px 미만)
+            @media (min-width: 320px) and (max-width: 575px) {
+                width: 256px;
+                height: 192px;
+            }
+
+            // Small devices (landscape phones, 576px 이상)
+            @media (min-width: 576px) and (max-width: 767px) {
+                width: 480px;
+                height: 360px;
+            }
+
+            // Medium devices (tablets, 768px 이상)
+            @media (min-width: 768px) and (max-width: 991px) {
+                width: 640px;
+                height: 480px;
+            }
+
+            // Large devices (desktops, 992px 이상)
+            @media (min-width: 992px) and (max-width: 1199px) {
+                width: 720px;
+                height: 540px;
+            }
+
+            // Extra large devices (large desktops, 1200px 이상)
+            @media (min-width: 1200px) {
+                width: 960px;
+                height: 720px;
+            }
+        }
+    }
+}
+
+.InputAddr {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+}
+.map_wrap {
+    position: relative;
+    width:100%;
+    height:350px;
+    margin-top: 100px;
+}
+.title {
+    font-weight:bold;
+    display:block;
+}
+.hAddr {
+    position:absolute;
+    left:10px;
+    top:10px;
+    border-radius: 2px;
+    background:#fff;
+    background:rgba(255,255,255,0.8);
+    z-index:1;padding:5px;
+}
+#centerAddr {
+    display:block;
+    margin-top:2px;
+    font-weight: normal;
+}
+.bAddr {
+    padding:5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
